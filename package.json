@@ -1,0 +1,24 @@
+{
+  "name": "com.outsystems.plugins.loggerproxy",
+  "version": "0.0.1",
+  "description": "OutSystems Logger for Cordova applications",
+  "cordova": {
+    "id": "com.outsystems.plugins.loggerproxy",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OutSystems/cordova-outsystems-logger-proxy"
+  },
+  "keywords": [
+    "cordova",
+    "outsystems"
+  ],
+  "author": "OutSystems Inc",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/OutSystems/cordova-outsystems-logger-proxy#readme"
+}

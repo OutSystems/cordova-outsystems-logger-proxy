@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin 
+    xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+    xmlns:android="http://schemas.android.com/apk/res/android" id="com.outsystems.plugins.loggerproxy" version="0.0.1">
+    
+    <name>OSLoggerProxy</name>
+    <description>OutSystems Logger Proxy for Cordova applications</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,outsystems</keywords>
+    <repo></repo>
+    <issue></issue>
+
+    <!-- js -->
+    <js-module name="OSLoggerProxy" src="www/OSLoggerProxy.js">
+        <clobbers target="OSLoggerProxy" />
+    </js-module>
+    
+    <!-- ios -->
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="OSLoggerProxy">
+                <param name="ios-package" value="OSLoggerProxyPlugin" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/OSLoggerProxyPlugin.h"/>
+        <source-file src="src/ios/OSLoggerProxyPlugin.m" />
+    </platform>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file parent="/*" target="config.xml">
+            <feature name="OSLoggerProxy">
+                <param name="android-package" value="com.outsystems.plugins.loggerproxy.OSLoggerProxyPlugin"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/OSLoggerProxyPlugin.java" target-dir="src/com/outsystems/plugins/loggerproxy" />
+    </platform>
+</plugin>
