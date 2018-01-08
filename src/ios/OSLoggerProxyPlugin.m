@@ -1,11 +1,11 @@
 #import "OSLoggerProxyPlugin.h"
 #import "OSLogger.h"
 
-@interface OSLoggerPlugin ()
+@interface OSLoggerProxyPlugin ()
 
 @end
 static OSDeviceInfo* deviceInfo;
-@implementation OSLoggerPlugin
+@implementation OSLoggerProxyPlugin
 
 #pragma mark - Life Cycle
 
@@ -21,7 +21,7 @@ static OSDeviceInfo* deviceInfo;
     NSString *message = [[command arguments] objectAtIndex:0];
     NSString *moduleName = [[command arguments] objectAtIndex:1];
     
-    [OSLogger logMessage:message withModuke:moduleName withType:0];
+    [OSLogger logMessage:message withModule:moduleName withType:0];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
@@ -35,7 +35,7 @@ static OSDeviceInfo* deviceInfo;
     NSString *message = [[command arguments] objectAtIndex:0];
     NSString *moduleName = [[command arguments] objectAtIndex:1];
     
-    [OSLogger logMessage:message withModuke:moduleName withType:1];
+    [OSLogger logMessage:message withModule:moduleName withType:1];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
@@ -49,7 +49,7 @@ static OSDeviceInfo* deviceInfo;
     NSString *message = [[command arguments] objectAtIndex:0];
     NSString *moduleName = [[command arguments] objectAtIndex:1];
     
-    [OSLogger logMessage:message withModuke:moduleName withType:2];
+    [OSLogger logMessage:message withModule:moduleName withType:2];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
@@ -63,7 +63,7 @@ static OSDeviceInfo* deviceInfo;
     NSString *message = [[command arguments] objectAtIndex:0];
     NSString *moduleName = [[command arguments] objectAtIndex:1];
     
-    [OSLogger logMessage:message withModuke:moduleName withType:3];
+    [OSLogger logMessage:message withModule:moduleName withType:3];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
@@ -78,7 +78,7 @@ static OSDeviceInfo* deviceInfo;
     NSString *moduleName = [[command arguments] objectAtIndex:1];
     NSException *stack = [[NSException alloc] initWithName:@"MyException" reason:[[command arguments] objectAtIndex:2] userInfo:nil];
     
-    [OSLogger logMessage:message withModuke:moduleName withStack:stack withType:4];
+    [OSLogger logMessage:message withModule:moduleName withStack:stack withType:4];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
@@ -93,7 +93,7 @@ static OSDeviceInfo* deviceInfo;
     NSString *moduleName = [[command arguments] objectAtIndex:1];
     NSException *stack = [[NSException alloc] initWithName:@"MyException" reason:[[command arguments] objectAtIndex:2] userInfo:nil];
     
-    [OSLogger logMessage:message withModuke:moduleName withStack:stack withType:5];
+    [OSLogger logMessage:message withModule:moduleName withStack:stack withType:5];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
