@@ -1,7 +1,7 @@
 package com.outsystems.plugins.loggerproxy;
 
-import com.outsystems.plugins.oslogger.enums.OSLogType;
 import com.outsystems.plugins.oslogger.OSLogger;
+import com.outsystems.plugins.oslogger.interfaces.Logger;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -18,6 +18,8 @@ public class OSLoggerProxyPlugin extends CordovaPlugin {
     private static final String ACTION_LOG_ERROR = "logMessageError";
     private static final String ACTION_LOG_FATAL = "logMessageFatal";
 
+    private Logger logger = OSLogger.getInstance();
+
     @Override
     protected void pluginInitialize() { }
 
@@ -26,62 +28,44 @@ public class OSLoggerProxyPlugin extends CordovaPlugin {
         if (ACTION_LOG_GENERAL.equals(action)) {
             String message = args.getString(0);
             String moduleName = args.getString(1);
-
-            OSLogType logType = OSLogType.values()[0];
-
-            OSLogger.logMessage(message, moduleName, logType);
+            this.logger.logInfo(message, moduleName);
 
             return true;
         }
         else if (ACTION_LOG_TRACE.equals(action)) {
             String message = args.getString(0);
             String moduleName = args.getString(1);
-
-            OSLogType logType = OSLogType.values()[1];
-
-            OSLogger.logMessage(message, moduleName, logType);
+            this.logger.logVerbose(message, moduleName);
 
             return true;
         }
         else if (ACTION_LOG_DEBUG.equals(action)) {
             String message = args.getString(0);
             String moduleName = args.getString(1);
-
-            OSLogType logType = OSLogType.values()[2];
-
-            OSLogger.logMessage(message, moduleName, logType);
+            this.logger.logDebug(message, moduleName);
 
             return true;
         }
         else if (ACTION_LOG_WARNING.equals(action)) {
             String message = args.getString(0);
             String moduleName = args.getString(1);
-
-            OSLogType logType = OSLogType.values()[3];
-
-            OSLogger.logMessage(message, moduleName, logType);
-
+            this.logger.logWarning(message, moduleName);
+            
             return true;
         }
         else if (ACTION_LOG_ERROR.equals(action)) {
             String message = args.getString(0);
             String moduleName = args.getString(1);
-            Exception stack = new Exception(args.getString(2));
-
-            OSLogType logType = OSLogType.values()[4];
-
-            OSLogger.logMessage(message, moduleName, stack, logType);
+            Exception e = new Exception(args.getString(2));
+            this.logger.logError(message, moduleName, e);
 
             return true;
         }
         else if (ACTION_LOG_FATAL.equals(action)) {
             String message = args.getString(0);
             String moduleName = args.getString(1);
-            Exception stack = new Exception(args.getString(2));
-
-            OSLogType logType = OSLogType.values()[5];
-
-            OSLogger.logMessage(message, moduleName, stack, logType);
+            Exception e = new Exception(args.getString(2));
+            this.logger.logFatal(message, moduleName, e);
 
             return true;
         }
