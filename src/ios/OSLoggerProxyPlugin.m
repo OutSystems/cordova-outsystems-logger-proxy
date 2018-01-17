@@ -92,7 +92,7 @@ static OSDeviceInfo* deviceInfo;
     NSString *moduleName = [[command arguments] objectAtIndex:1];
     NSException *stack = [[NSException alloc] initWithName:@"MyException" reason:[[command arguments] objectAtIndex:2] userInfo:nil];
     
-    [_logger logError:message withModule:moduleName withStack:stack];
+    [_logger logError:message withModule:moduleName withException:stack];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
@@ -107,7 +107,7 @@ static OSDeviceInfo* deviceInfo;
     NSString *moduleName = [[command arguments] objectAtIndex:1];
     NSException *stack = [[NSException alloc] initWithName:@"MyException" reason:[[command arguments] objectAtIndex:2] userInfo:nil];
     
-    [_logger logFatal:message withModule:moduleName withStack:stack];
+    [_logger logFatal:message withModule:moduleName withException:stack];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
