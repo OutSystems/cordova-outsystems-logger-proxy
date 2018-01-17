@@ -30,7 +30,6 @@ public class OSLoggerProxyPlugin extends CordovaPlugin {
             OSLogType logType = OSLogType.values()[0];
 
             OSLogger.logMessage(message, moduleName, logType);
-            callbackContext.success();
 
             return true;
         }
@@ -41,8 +40,7 @@ public class OSLoggerProxyPlugin extends CordovaPlugin {
             OSLogType logType = OSLogType.values()[1];
 
             OSLogger.logMessage(message, moduleName, logType);
-            callbackContext.success();
-            
+
             return true;
         }
         else if (ACTION_LOG_DEBUG.equals(action)) {
@@ -52,8 +50,7 @@ public class OSLoggerProxyPlugin extends CordovaPlugin {
             OSLogType logType = OSLogType.values()[2];
 
             OSLogger.logMessage(message, moduleName, logType);
-            callbackContext.success();
-            
+
             return true;
         }
         else if (ACTION_LOG_WARNING.equals(action)) {
@@ -63,8 +60,7 @@ public class OSLoggerProxyPlugin extends CordovaPlugin {
             OSLogType logType = OSLogType.values()[3];
 
             OSLogger.logMessage(message, moduleName, logType);
-            callbackContext.success();
-            
+
             return true;
         }
         else if (ACTION_LOG_ERROR.equals(action)) {
@@ -75,8 +71,7 @@ public class OSLoggerProxyPlugin extends CordovaPlugin {
             OSLogType logType = OSLogType.values()[4];
 
             OSLogger.logMessage(message, moduleName, stack, logType);
-            callbackContext.success();
-            
+
             return true;
         }
         else if (ACTION_LOG_FATAL.equals(action)) {
@@ -87,8 +82,7 @@ public class OSLoggerProxyPlugin extends CordovaPlugin {
             OSLogType logType = OSLogType.values()[5];
 
             OSLogger.logMessage(message, moduleName, stack, logType);
-            callbackContext.success();
-            
+
             return true;
         }
 
