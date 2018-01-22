@@ -17,6 +17,7 @@ public class OSLoggerProxyPlugin extends CordovaPlugin {
     private static final String ACTION_LOG_WARNING = "logMessageWarning";
     private static final String ACTION_LOG_ERROR = "logMessageError";
     private static final String ACTION_LOG_FATAL = "logMessageFatal";
+    private static final String ACTION_NATIVE_CRASH = "forceNativeCrash";
 
     private Logger logger = OSLogger.getInstance();
 
@@ -69,6 +70,9 @@ public class OSLoggerProxyPlugin extends CordovaPlugin {
 
             return true;
         }
+        else if(ACTION_NATIVE_CRASH.equals(action)){
+            throw new RuntimeException("This is a crash");
+        }    
 
         return false;
     }

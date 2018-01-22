@@ -14,5 +14,7 @@
 
 - (void)logMessageFatal:(CDVInvokedUrlCommand *)command;
 
+- (void)forceNativeCrash:(CDVInvokedUrlCommand *)command;
+
 @end
 

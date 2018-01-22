@@ -71,3 +71,7 @@ exports.logMessageFatal = function (message, moduleName, stack, success, fail) {
     
     exec(success, fail, "OSLoggerProxy", "logMessageFatal", [message, moduleName, stack]);
 }
+
+exports.forceNativeCrash = function (success, fail){
+    exec(success,fail, "OSLoggerProxy","forceNativeCrash",[]);
+}

@@ -1,6 +1,6 @@
 {
   "name": "com.outsystems.plugins.loggerproxy",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "OutSystems Logger for Cordova applications",
   "cordova": {
     "id": "com.outsystems.plugins.loggerproxy",

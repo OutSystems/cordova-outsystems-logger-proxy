@@ -113,5 +113,12 @@ static OSDeviceInfo* deviceInfo;
     [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
 }
 
+- (void)forceNativeCrash:(CDVInvokedUrlCommand *)command {
+    
+    [self.commandDelegate runInBackground:^{
+       @throw NSInternalInconsistencyException;
+    }];
+}
+
 @end
 
