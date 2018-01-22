@@ -71,8 +71,13 @@ public class OSLoggerProxyPlugin extends CordovaPlugin {
             return true;
         }
         else if(ACTION_NATIVE_CRASH.equals(action)){
-            throw new RuntimeException("This is a crash");
-        }    
+            this.cordova.getThreadPool().execute(new Runnable() {
+                @Override
+                public void run() {
+                    throw new RuntimeException("This is a crash");
+                }
+            });
+        }
 
         return false;
     }
