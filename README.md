@@ -1,5 +1,7 @@
 # cordova-outsystems-logger-proxy
 
+
+
 ## Usage
 
 ```javascript
